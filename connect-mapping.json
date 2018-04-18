@@ -1,0 +1,106 @@
+{
+  "mappings": [
+    {
+      "object_name": "WinesAndSpirits__c",
+      "config": {
+        "access": "read_only",
+        "sf_notify_enabled": true,
+        "sf_polling_seconds": 600,
+        "sf_max_daily_api_calls": 30000,
+        "fields": {
+          "Description__c": {},
+          "image__c": {},
+          "Name": {},
+          "LastModifiedDate": {},
+          "IsDeleted": {},
+          "SystemModstamp": {},
+          "CreatedDate": {},
+          "Id": {}
+        },
+        "indexes": {
+          "LastModifiedDate": {
+            "unique": false
+          },
+          "SystemModstamp": {
+            "unique": false
+          },
+          "Id": {
+            "unique": true
+          }
+        }
+      }
+    },
+    {
+      "object_name": "heroku_logs__c",
+      "config": {
+        "indexes": {
+          "SystemModstamp": {
+            "unique": false
+          },
+          "Id": {
+            "unique": true
+          },
+          "externalid__c": {
+            "unique": true
+          }
+        },
+        "sf_max_daily_api_calls": 30000,
+        "access": "read_write",
+        "upsert_field": "externalid__c",
+        "applied_at": "2018-04-18T09:54:26.329528Z",
+        "sf_polling_seconds": 600,
+        "sf_notify_enabled": false,
+        "fields": {
+          "useragent__c": {},
+          "Name": {},
+          "IsDeleted": {},
+          "SystemModstamp": {},
+          "url__c": {},
+          "creationdate__c": {},
+          "CreatedDate": {},
+          "CreatedById": {},
+          "Id": {},
+          "externalid__c": {}
+        }
+      }
+    },
+    {
+      "object_name": "Product2",
+      "config": {
+        "access": "read_only",
+        "sf_notify_enabled": false,
+        "sf_polling_seconds": 600,
+        "sf_max_daily_api_calls": 30000,
+        "fields": {
+          "image__c": {},
+          "Name": {},
+          "DisplayUrl": {},
+          "IsDeleted": {},
+          "SystemModstamp": {},
+          "CreatedDate": {},
+          "pic__c": {},
+          "CreatedById": {},
+          "Id": {},
+          "Description": {}
+        },
+        "indexes": {
+          "SystemModstamp": {
+            "unique": false
+          },
+          "Id": {
+            "unique": true
+          }
+        },
+        "applied_at": "2018-03-28T08:50:21.079683Z"
+      }
+    }
+  ],
+  "connection": {
+    "exported_at": "2018-04-18T09:50:02.613974+00:00",
+    "features": {
+      "poll_db_no_merge": true,
+      "poll_external_ids": false
+    }
+  },
+  "version": 1
+}

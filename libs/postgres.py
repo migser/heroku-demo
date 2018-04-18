@@ -35,7 +35,7 @@ def __getObjects(tableName):
 
 def __getTables():
     if (MANUAL_ENGINE_POSTGRES != None):
-        sqlRequest = "SELECT table_schema,table_name FROM information_schema.tables where table_schema like '%%alesforce' ORDER BY table_schema,table_name"
+        sqlRequest = "SELECT table_schema, table_name FROM information_schema.tables where table_schema like '%%alesforce' ORDER BY table_schema,table_name"
         result = MANUAL_ENGINE_POSTGRES.execute(sqlRequest)
         return utils.__resultToDict(result)
         

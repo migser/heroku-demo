@@ -7,8 +7,9 @@ from flask_bootstrap import Bootstrap
 from libs import postgres , utils , logs, rediscache
 
 RENDER_INDEX_BOOTSTRAP="index_bootstrap.html"
-RENDER_INDEX="index.html"
-RENDER_TABLE_DATA="table_data.html"
+RENDER_INDEX="index_new.html"
+RENDER_TABLE_DATA="table_data_new.html"
+RENDER_TABLE_DATA_IMG="table_data_img.html"
 STATIC_URL_PATH = "static/"
 
 
@@ -116,10 +117,17 @@ def getObjects():
 
             if (output == 'html'):
                 logger.info("Treating request as a web request, output to Web page")
-                data = render_template(RENDER_TABLE_DATA,
+                if ('image__c' in data_dict['columns']):
+                            data = render_template(RENDER_TABLE_DATA_IMG,
                             columns=data_dict['columns'],
                             object_name=object_name,
                             entries = data_dict['data'])
+                else:
+                    data = render_template(RENDER_TABLE_DATA,
+                                columns=data_dict['columns'],
+                                object_name=object_name,
+                                entries = data_dict['data'])
+
             else:
                 logger.info("Treating request as an API request, output to Json only")
                 data = ujson.dumps(data_dict)

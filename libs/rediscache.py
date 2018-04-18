@@ -19,8 +19,9 @@ if (REDIS_URL != ''):
     logger.info("{}  - Initialization done Redis" .format(datetime.now()))
 
 def __display_RedisContent():
-    for keys in REDIS_CONN.scan_iter():
-        logger.info(keys)
+    if (REDIS_CONN != None):
+        for keys in REDIS_CONN.scan_iter():
+            logger.info(keys)
     cacheData = __getCache('keys *')
     if cacheData != None:
         for entry in cacheData:
